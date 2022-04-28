@@ -1,17 +1,17 @@
-.AccountIdBlock{
+.AccountIdBlock {
     width: 100%;
     display: flex;
     flex-direction: row;
-    border: solid 1px #7ed085;
+    border: solid 1px #c18565;
     border-radius: 4px;
     background: $s-color-primary9;
     line-height: normal;
     margin-bottom: 15px;
 
-    .AccountIdBlock_qrcode{
+    .AccountIdBlock_qrcode {
         padding: 7px;
         background: #fff;
-        border-right: solid 1px #7ed085;
+        border-right: solid 1px #c18565;
         border-radius: 4px 0 0 4px;
     }
 

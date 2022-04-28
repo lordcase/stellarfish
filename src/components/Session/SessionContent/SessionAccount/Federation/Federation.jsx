@@ -117,8 +117,7 @@ export default class Federation extends React.Component {
                 <div className={alertClass}>
                     <div className="Account_alert_left">
                         <p className="no_federation_text">
-                            Get a short memorable payment address for your wallet
-                            with StellarTerm federation
+                            Get a short memorable payment address for your wallet with StellarFish federation
                         </p>
                     </div>
 
@@ -166,7 +165,6 @@ export default class Federation extends React.Component {
             return;
         }
 
-
         this.setState({
             isEditing: !this.state.isEditing,
             address: userFederation,
@@ -192,9 +190,7 @@ export default class Federation extends React.Component {
             })
             .catch(e => {
                 this.setState({
-                    fedError: (e.data && e.data.name)
-                        ? e.data.name :
-                        'Federation error occurred! Please try later.',
+                    fedError: e.data && e.data.name ? e.data.name : 'Federation error occurred! Please try later.',
                     reqIsResolved: true,
                 });
             });
@@ -211,7 +207,7 @@ export default class Federation extends React.Component {
                 {errorBlock}
 
                 <p className="AccountView_text">
-                    You can set an alias for your StellarTerm account and use it instead of your public key to receive
+                    You can set an alias for your StellarFish account and use it instead of your public key to receive
                     payments on Stellar.
                     <br />
                     Share this address with people so they can send you tokens.

@@ -1,10 +1,10 @@
 .Header_main {
     position: relative;
     z-index: 10;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 
     .Header_network {
-        background: $s-color-primary7;
+        // background: $s-color-primary7;
         padding: 8px 0;
 
         .Network_bar {
@@ -55,7 +55,7 @@
                 }
 
                 .Nav_link:hover {
-                    background: $s-color-primary4;
+                    background: #c18565;
                     color: #fff;
                 }
 
@@ -108,7 +108,7 @@
             .Header_login {
                 display: flex;
                 flex-direction: row;
-                color: #86d38c;
+                color: #c18565;
                 align-items: center;
                 font-size: 16px;
                 font-weight: 600;
@@ -176,7 +176,7 @@
                             left: unset;
                             right: 10px;
                             border: 8px solid transparent;
-                            border-bottom: 8px solid #7ed085;
+                            border-bottom: 8px solid #c18565;
                         }
 
                         &.federationPopup {
@@ -211,7 +211,7 @@
                     width: 32px;
                     height: 32px;
                     border-radius: 50%;
-                    border: solid 2px #E1F4E2;
+                    border: solid 2px #e1f4e2;
                     display: flex;
                     align-items: center;
                     justify-content: center;

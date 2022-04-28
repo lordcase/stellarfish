@@ -1,4 +1,4 @@
-.SignerDataRow{
+.SignerDataRow {
     width: 100%;
     height: 72px;
     padding-left: 22px;
@@ -8,18 +8,17 @@
     align-items: center;
     border-bottom: 2px solid #dfe0e1;
 
-    .SignerDataRow_type{
+    .SignerDataRow_type {
         min-width: 180px;
     }
 
-    .SignerDataRow_key{
+    .SignerDataRow_key {
         min-width: 420px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
 
-
-        .SignerDataRow_icon{
+        .SignerDataRow_icon {
             height: 26px;
             width: 26px;
             margin-right: 7px;
@@ -29,42 +28,38 @@
             border-radius: 50%;
             border: solid 2px #f4f4f5;
 
-            img{
+            img {
                 height: 14px;
                 width: 14px;
             }
         }
     }
-    .SignerDataRow_weight{
+    .SignerDataRow_weight {
         min-width: 50px;
     }
 
-    .SignerDataRow_buttons{
+    .SignerDataRow_buttons {
         width: 300px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-left: 80px;
 
-        .SignerDataRow_buttons-remove{
+        .SignerDataRow_buttons-remove {
             display: flex;
             flex-direction: row;
             align-items: center;
             cursor: pointer;
-            img{
+            img {
                 width: 24px;
                 height: 24px;
                 margin-right: 5px;
             }
-            span{
-                color: #86d38c;
+            span {
+                color: #c18565;
                 text-transform: uppercase;
                 font-weight: 600;
             }
         }
     }
-
 }
-
-
-

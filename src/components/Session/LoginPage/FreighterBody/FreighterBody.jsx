@@ -8,15 +8,13 @@ import Driver from '../../../../lib/Driver';
 import { isChrome } from '../../../../lib/BrowserSupport';
 import AcceptTerms from '../Common/AcceptTerms';
 
-
 const FreighterBody = ({ history, d, modal }) => {
     const [loginError, setLoginError] = useState('');
 
     const loginWithFreighter = event => {
         event.preventDefault();
         setLoginError('');
-        d.session.handlers.logInWithFreighter()
-            .catch(e => setLoginError(e));
+        d.session.handlers.logInWithFreighter().catch(e => setLoginError(e));
     };
 
     const renderLoginError = () => {
@@ -24,9 +22,7 @@ const FreighterBody = ({ history, d, modal }) => {
             return (
                 <div className="ErrorTransactionBlock">
                     <img src={images['icon-circle-fail']} alt="fail" />
-                    <span>
-                        {loginError}
-                    </span>
+                    <span>{loginError}</span>
                 </div>
             );
         }
@@ -46,9 +42,7 @@ const FreighterBody = ({ history, d, modal }) => {
         if (!isConnected()) {
             return (
                 <Fragment>
-                    <p className="LoginPage__form--title browser-support">
-                        Freighter extension is not installed.
-                    </p>
+                    <p className="LoginPage__form--title browser-support">Freighter extension is not installed.</p>
                     <a
                         className="LoginPage__link"
                         target="_blank"
@@ -79,7 +73,6 @@ const FreighterBody = ({ history, d, modal }) => {
         );
     }
 
-
     return (
         <React.Fragment>
             <div className="LoginPage_row-content">
@@ -96,13 +89,11 @@ const FreighterBody = ({ history, d, modal }) => {
                     <div className="LoginPage__header">
                         <div className="LoginPage__header-wrap">
                             <span className="LoginPage__title">Access your account</span>
-                            <span className="LoginPage__intro">Use StellarTerm with your Freighter extension</span>
+                            <span className="LoginPage__intro">Use StellarFish with your Freighter extension</span>
                         </div>
                         <img src={images['freighter-logo-main']} alt="freighter" height="66" />
                     </div>
-                    <div className="LoginPage__greenBox">
-                        {getFreighterLoginForm()}
-                    </div>
+                    <div className="LoginPage__greenBox">{getFreighterLoginForm()}</div>
                 </div>
                 <SecretPhrase d={d} />
             </div>

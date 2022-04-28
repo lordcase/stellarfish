@@ -4,16 +4,23 @@
     justify-content: center;
 }
 
-@mixin font-14 { font-size: 14px; }
-@mixin font-16 { font-size: 16px; }
+@mixin font-14 {
+    font-size: 14px;
+}
+@mixin font-16 {
+    font-size: 16px;
+}
 
 .Error_boundary {
     @include font-14;
 
-    .Generic__content{
+    .Generic__content {
         padding: 0;
 
-        h1, p { font-weight: normal; }
+        h1,
+        p {
+            font-weight: normal;
+        }
 
         .Error_boundary_title {
             @include flex-center;
@@ -29,15 +36,18 @@
             p {
                 color: #9aa6ac;
 
-                strong { color: #1c2e3e; }
+                strong {
+                    color: #1c2e3e;
+                }
             }
         }
 
-
         .Error_content {
             padding: 40px 35px;
-            
-            p { @include font-16; }
+
+            p {
+                @include font-16;
+            }
 
             .Error_steps_list {
                 list-style-type: decimal;
@@ -45,7 +55,9 @@
                 margin-left: 1em;
                 color: #9aa6ac;
 
-                li { font-weight: normal; }
+                li {
+                    font-weight: normal;
+                }
             }
 
             pre {
@@ -78,25 +90,25 @@
                     color: #fff;
                     text-decoration: none;
                     border-radius: 2px;
-                    border: solid 1px #5eb464;
-                    background-color: #69c76f;
-        
+                    border: solid 1px #c18565;
+                    background-color: #c18565;
+
                     &:hover {
                         border: 1px solid #498c4e;
                         background: #53a059;
                     }
-        
+
                     &:active {
                         border: 1px solid #3e7843;
                         background: #498c4e;
                         box-shadow: none;
                     }
-                } 
+                }
 
                 .CopyButton {
                     .CopyButton__popup {
                         left: 0;
-                
+
                         &::after {
                             left: 50%;
                         }

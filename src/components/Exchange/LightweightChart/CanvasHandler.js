@@ -17,7 +17,7 @@ function drawChartData(ctx, w, h, pairName, timeFrameInMin, trade, volume) {
     ctx.beginPath();
     ctx.lineWidth = '30';
     ctx.strokeStyle = '#ffffff';
-    ctx.rect(0, canvasTopOffset - imagePadding, w, (h - canvasTopOffset) + imagePadding);
+    ctx.rect(0, canvasTopOffset - imagePadding, w, h - canvasTopOffset + imagePadding);
     ctx.stroke();
 
     ctx.lineWidth = '1';
@@ -37,12 +37,17 @@ function drawChartData(ctx, w, h, pairName, timeFrameInMin, trade, volume) {
     ctx.font = '900 21px Source Sans Pro';
     ctx.fillText(`${pairName}, ${timeFrameInMin}`, 15, 56);
 
-    const ohlcString = `O:  ${getReadableNumber(trade.open)}  H:  ${getReadableNumber(trade.high)}  L:  ${getReadableNumber(trade.low)}  C:  ${getReadableNumber(trade.close)}  V:  ${getReadableNumber(volume.value)}`;    ctx.fillStyle = '#999999';
+    const ohlcString = `O:  ${getReadableNumber(trade.open)}  H:  ${getReadableNumber(
+        trade.high,
+    )}  L:  ${getReadableNumber(trade.low)}  C:  ${getReadableNumber(trade.close)}  V:  ${getReadableNumber(
+        volume.value,
+    )}`;
+    ctx.fillStyle = '#999999';
     ctx.fillText(ohlcString, pxOffsetFromTime, 56);
 
     ctx.font = 'bold 32px Source Sans Pro';
     ctx.fillStyle = '#68c86f';
-    ctx.fillText('StellarTerm', w - 180, 48);
+    ctx.fillText('StellarFish', w - 180, 48);
 }
 
 export default function exportChartPng(canvas, imageName, pairName, timeFrameInMin, trade, volume) {

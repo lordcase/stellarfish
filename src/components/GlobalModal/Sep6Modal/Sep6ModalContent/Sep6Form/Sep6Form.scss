@@ -32,7 +32,7 @@
             outline: none;
 
             &:focus {
-                border: solid 1px #69c76f;
+                border: solid 1px #c18565;
             }
         }
 
@@ -95,7 +95,7 @@
         font-size: 13px;
 
         &::after {
-            content: "";
+            content: '';
             position: absolute;
             right: 20px;
             bottom: -8px;
@@ -122,7 +122,7 @@
 
                 &:hover,
                 &:active {
-                    border: solid 1px #69c76f;
+                    border: solid 1px #c18565;
                 }
 
                 &:active {
@@ -132,8 +132,8 @@
 
             .s-button-active {
                 z-index: 3;
-                color: #69c76f;
-                border: solid 1px #69c76f;
+                color: #c18565;
+                border: solid 1px #c18565;
             }
         }
     }

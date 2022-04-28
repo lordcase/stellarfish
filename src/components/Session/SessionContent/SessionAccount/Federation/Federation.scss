@@ -1,4 +1,4 @@
-@import "./FederationInput/FederationInput";
+@import './FederationInput/FederationInput';
 
 .Federations_block {
     border-top: 1px solid #ddd;
@@ -28,20 +28,20 @@
         }
 
         button.b_transparent {
-            border: solid 1px #5eb464;
+            border: solid 1px #c18565;
             background-color: Transparent;
-            color: #69c76f;
+            color: #c18565;
 
             &:hover {
                 background-color: Transparent;
-                border: solid 1px #69c76f;
-                color: #69c76f;
+                border: solid 1px #c18565;
+                color: #c18565;
             }
 
             &:active {
                 opacity: 0.9;
-                border: solid 1px #5eb464;
-                color: #5eb464;
+                border: solid 1px #c18565;
+                color: #c18565;
             }
         }
     }
@@ -58,8 +58,8 @@
         }
     }
 
-    .bordered_federation{
-        border-right: 1px solid #69c76f;
+    .bordered_federation {
+        border-right: 1px solid #c18565;
     }
 
     .Account_alert_right {

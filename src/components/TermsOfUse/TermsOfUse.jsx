@@ -17,7 +17,7 @@ export default function TermsOfUse(props) {
                 <a href="https://www.stellar.org/" target="_blank" rel="nofollow noopener noreferrer">
                     Stellar network
                 </a>
-                . StellarTerm is not responsible for your investment losses.
+                . StellarFish is not responsible for your investment losses.
                 <br />
                 <br />
                 Cryptocurrency assets and the Stellar {'"decentralized exchange"'} are <strong>unregulated</strong> and
@@ -25,31 +25,32 @@ export default function TermsOfUse(props) {
                 <a
                     href="https://www.sec.gov/news/public-statement/statement-clayton-2017-12-11"
                     target="_blank"
-                    rel="nofollow noopener noreferrer">
+                    rel="nofollow noopener noreferrer"
+                >
                     Statement on Cryptocurrencies and Initial Coin Offerings
                 </a>
                 {'" '}
                 that may be of interest to you.
             </p>
 
-            <h3>2. The Stellar network (separate from StellarTerm)</h3>
+            <h3>2. The Stellar network (separate from StellarFish)</h3>
             <p className="termsOfUse__Paragraph">
-                StellarTerm is <strong>not an exchange</strong>. StellarTerm is <strong>only a user interface </strong>
+                StellarFish is <strong>not an exchange</strong>. StellarFish is <strong>only a user interface </strong>
                 to Stellar and does not operate the{' '}
                 <a href="https://www.stellar.org/" target="_blank" rel="nofollow noopener noreferrer">
                     Stellar network
                 </a>
-                . StellarTerm is unable to control the actions of others on the{' '}
+                . StellarFish is unable to control the actions of others on the{' '}
                 <a href="https://www.stellar.org/" target="_blank" rel="nofollow noopener noreferrer">
                     {' '}
                     Stellar network
                 </a>
-                . When using StellarTerm, you are directly communicating with the Horizon Stellar API operated by
+                . When using StellarFish, you are directly communicating with the Horizon Stellar API operated by
                 Stellar Development Foundation. Transactions on the{' '}
                 <a href="https://www.stellar.org/" target="_blank" rel="nofollow noopener noreferrer">
                     Stellar network
                 </a>{' '}
-                are <strong>irreversible</strong>. StellarTerm is not a custodian of your assets. We do not store any
+                are <strong>irreversible</strong>. StellarFish is not a custodian of your assets. We do not store any
                 tokens, cryptoassets or private keys on your behalf.
             </p>
 
@@ -59,15 +60,15 @@ export default function TermsOfUse(props) {
                 information.
             </p>
 
-            <h3>4. StellarTerm does not endorse anything</h3>
+            <h3>4. StellarFish does not endorse anything</h3>
             <p className="termsOfUse__Paragraph">
-                StellarTerm <strong>does NOT endorse ANY</strong> asset on the{' '}
+                StellarFish <strong>does NOT endorse ANY</strong> asset on the{' '}
                 <a href="https://www.stellar.org/" target="_blank" rel="nofollow noopener noreferrer">
                     Stellar network
                 </a>
-                . Asset {'"listings"'} on StellarTerm are NOT endorsements. StellarTerm is a software client ONLY and
+                . Asset {'"listings"'} on StellarFish are NOT endorsements. StellarFish is a software client ONLY and
                 does NOT conduct any independent diligence or review of any asset. Stellar is an open system meaning
-                that scams and market manipulators may exist. Prices shown on StellarTerm are for informational purposes
+                that scams and market manipulators may exist. Prices shown on StellarFish are for informational purposes
                 and do not imply that they can actually be redeemed for a certain price.
             </p>
 
@@ -80,11 +81,12 @@ export default function TermsOfUse(props) {
 
             <h3>6. Disclaimer of warranty</h3>
             <p className="termsOfUse__Paragraph">
-                StellarTerm is open source software licensed under the{' '}
+                StellarFish is open source software licensed under the{' '}
                 <a
                     href="https://www.apache.org/licenses/LICENSE-2.0"
                     target="_blank"
-                    rel="nofollow noopener noreferrer">
+                    rel="nofollow noopener noreferrer"
+                >
                     Apache-2.0 license
                 </a>
                 . It is provided free of charge and on an{' '}

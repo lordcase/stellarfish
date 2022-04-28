@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import images from '../../../images';
 import Ellipsis from '../../Common/Ellipsis/Ellipsis';
 
-
 const WalletConnectSessionRequestModal = ({ data, submit }) => (
     <div className="MultisigSubmitModal WalletConnectSessionRequestModal">
         <div className="Modal_header">
@@ -20,7 +19,7 @@ const WalletConnectSessionRequestModal = ({ data, submit }) => (
             <div className="WalletConnectSessionRequestModal__title">
                 The connection request was sent to {data.title}.
                 <br />
-                Confirm the request in the app and continue with StellarTerm.
+                Confirm the request in the app and continue with StellarFish.
             </div>
             <div className="WalletConnectSessionRequestModal__container">
                 <div className="WalletConnectSessionRequestModal__icons">
@@ -28,7 +27,10 @@ const WalletConnectSessionRequestModal = ({ data, submit }) => (
                     <img className="WalletConnectSessionRequestModal__arrows" src={images['icon-arrows']} alt="" />
                     <img className="WalletConnectSessionRequestModal__icon" src={data.logo} alt="" />
                 </div>
-                <span className="WalletConnectSessionRequestModal__loader">Connecting<Ellipsis /></span>
+                <span className="WalletConnectSessionRequestModal__loader">
+                    Connecting
+                    <Ellipsis />
+                </span>
             </div>
         </div>
     </div>

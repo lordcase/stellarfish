@@ -10,7 +10,6 @@ import AcceptTerms from '../Common/AcceptTerms';
 import TrezorSetupInstructions from './TrezorSetupInstructions/TrezorSetupInstructions';
 import TrezorSetupNotes from './TrezorSetupNotes/TrezorSetupNotes';
 
-
 export default class TrezorBody extends React.Component {
     constructor(props) {
         super(props);
@@ -41,9 +40,7 @@ export default class TrezorBody extends React.Component {
                 <div className="LoginPage__submitWrap">
                     {loginError}
                     <AcceptTerms loginButtonText={'Log in with Trezor'} />
-                    <div className="LoginPage__customPath">
-                        {customPath}
-                    </div>
+                    <div className="LoginPage__customPath">{customPath}</div>
                 </div>
             </form>
         );
@@ -53,7 +50,8 @@ export default class TrezorBody extends React.Component {
         event.preventDefault();
         this.setState({ loginError: false });
         const { bip32Path } = this.state;
-        this.props.d.session.handlers.logInWithTrezor(`m/44'/148'/${bip32Path}'`)
+        this.props.d.session.handlers
+            .logInWithTrezor(`m/44'/148'/${bip32Path}'`)
             .then()
             .catch(e => {
                 console.log(e);
@@ -78,16 +76,12 @@ export default class TrezorBody extends React.Component {
         const { customBip32Path, bip32Path } = this.state;
 
         if (!customBip32Path) {
-            return (
-                <a onClick={() => this.enableAdvanced()}>
-                    Advanced: Use custom BIP32 path
-                </a>
-            );
+            return <a onClick={() => this.enableAdvanced()}>Advanced: Use custom BIP32 path</a>;
         }
 
         return (
             <label htmlFor="bip32Path" className="LoginPage__bip32Path">
-                Path: <span className="">{'44\'/148\'/'}</span>
+                Path: <span className="">{"44'/148'/"}</span>
                 <input
                     style={inputWidthStyle}
                     name="bip32Path"
@@ -103,7 +97,7 @@ export default class TrezorBody extends React.Component {
                         e.target.value = content;
                     }}
                 />
-                <span>{'\''}</span>
+                <span>{"'"}</span>
             </label>
         );
     }
@@ -114,9 +108,7 @@ export default class TrezorBody extends React.Component {
             return (
                 <div className="ErrorTransactionBlock">
                     <img src={images['icon-circle-fail']} alt="fail" />
-                    <span>
-                        {loginError}
-                    </span>
+                    <span>{loginError}</span>
                 </div>
             );
         }
@@ -152,30 +144,28 @@ export default class TrezorBody extends React.Component {
                         <div className="LoginPage__header">
                             <div className="LoginPage__header-wrap">
                                 <span className="LoginPage__title">Access your account</span>
-                                <span className="LoginPage__intro">Use StellarTerm with your Trezor account</span>
+                                <span className="LoginPage__intro">Use StellarFish with your Trezor account</span>
                             </div>
                             <img src={images['trezor-full']} alt="trezor" width="133" />
                         </div>
-                        <div className="LoginPage__greenBox">
-                            {trezorLoginForm}
-                        </div>
-                        {!showInstructions &&
-                        <span
-                            className="LoginPage_green-link"
-                            onClick={() => this.setState({ showInstructions: true })}
-                        >
+                        <div className="LoginPage__greenBox">{trezorLoginForm}</div>
+                        {!showInstructions && (
+                            <span
+                                className="LoginPage_green-link"
+                                onClick={() => this.setState({ showInstructions: true })}
+                            >
                                 Show setup instructions
-                        </span>
-                        }
+                            </span>
+                        )}
                     </div>
                     <SecretPhrase d={d} />
                 </div>
-                {showInstructions &&
+                {showInstructions && (
                     <div className="LoginPage_instructions-wrap">
                         <TrezorSetupInstructions />
                         <TrezorSetupNotes />
                     </div>
-                }
+                )}
             </React.Fragment>
         );
     }

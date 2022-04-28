@@ -5,7 +5,6 @@ import Phrases from './SecretPhrases.json';
 import Sep7Handler from '../../HomePage/Sep7Handler/Sep7Handler';
 import Driver from '../../../lib/Driver';
 
-
 export default class SecretPhraseSetup extends React.Component {
     constructor(props) {
         super(props);
@@ -53,36 +52,38 @@ export default class SecretPhraseSetup extends React.Component {
                         onClick={() => {
                             submit.cancel();
                             Sep7Handler(d);
-                        }} />
+                        }}
+                    />
                 </div>
                 <div className="SecretPhraseSetup_wrap">
                     <p className="SecretPhraseSetup_title">
-                        A Secret Phrase can help you verify that you are using authentic StellarTerm website and save
-                         you from phishing attacks.
+                        A Secret Phrase can help you verify that you are using authentic StellarFish website and save
+                        you from phishing attacks.
                     </p>
                     <p>
-                        Have you configured your Secret Phrase? If you did, be careful, as it should always be
-                         present here when you are accessing your account.
+                        Have you configured your Secret Phrase? If you did, be careful, as it should always be present
+                        here when you are accessing your account.
                     </p>
                     <ul className="SecretPhraseSetup_description">
                         <li className="SecretPhraseSetup_description-item">
-                            The Phrase could be missing if you access StellarTerm from a new device or a new browser.
+                            The Phrase could be missing if you access StellarFish from a new device or a new browser.
                         </li>
                         <li className="SecretPhraseSetup_description-item">
                             Always check the URL to make sure you are on the correct website.
                         </li>
                     </ul>
-                    <p>
-                        If you haven’t configured a Secret Phrase yet, we highly recommend you to do it now.
-                    </p>
+                    <p>If you haven’t configured a Secret Phrase yet, we highly recommend you to do it now.</p>
                     <p className="SecretPhraseSetup_label">Your secret phrase</p>
                     <input
                         type="text"
                         onChange={e => this.handleInput(e)}
                         value={secretPhrase}
                         placeholder="Enter Secret Phrase (at least 5 symbols)"
-                        className="LoginPage__password" />
-                    <span onClick={() => this.generatePhrase()} className="SecretPhraseSetup_generate">Generate</span>
+                        className="LoginPage__password"
+                    />
+                    <span onClick={() => this.generatePhrase()} className="SecretPhraseSetup_generate">
+                        Generate
+                    </span>
                     <div className="Modal_button-block">
                         <button
                             className="cancel-button"
@@ -90,13 +91,15 @@ export default class SecretPhraseSetup extends React.Component {
                             onClick={() => {
                                 submit.cancel();
                                 Sep7Handler(d);
-                            }}>
+                            }}
+                        >
                             Cancel
                         </button>
                         <button
                             className="s-button"
                             disabled={!buttonReady || secretPhrase.length < 5}
-                            onClick={() => this.savePhrase()}>
+                            onClick={() => this.savePhrase()}
+                        >
                             {buttonReady ? 'Save' : <div className="nk-spinner" />}
                         </button>
                     </div>

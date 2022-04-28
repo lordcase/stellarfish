@@ -16,7 +16,6 @@ import images from '../../images';
 const KNOWN_MARKETS_ROUTE = '/markets/';
 const TOP_VOLUME_ROUTE = '/markets/top/';
 
-
 export default class Markets extends React.Component {
     constructor(props) {
         super(props);
@@ -86,12 +85,7 @@ export default class Markets extends React.Component {
         return (
             <div>
                 <div className="so-back islandBack islandBack--t">
-                    <SearchByAnchor
-                        d={d}
-                        tradeLink
-                        withUrlParams
-                        {...props}
-                    />
+                    <SearchByAnchor d={d} tradeLink withUrlParams {...props} />
                 </div>
                 <div className="so-back islandBack">
                     <div className="island">
@@ -99,13 +93,17 @@ export default class Markets extends React.Component {
                             <div className="AssetList_Tabs">
                                 <div
                                     onClick={() => this.toggleMarketsTables(false)}
-                                    className={`ListHeader_Title ${window.location.pathname === KNOWN_MARKETS_ROUTE ? 'active' : ''}`}
+                                    className={`ListHeader_Title ${
+                                        window.location.pathname === KNOWN_MARKETS_ROUTE ? 'active' : ''
+                                    }`}
                                 >
                                     Known assets
                                 </div>
                                 <div
                                     onClick={() => this.toggleMarketsTables(true)}
-                                    className={`ListHeader_Title ${window.location.pathname === TOP_VOLUME_ROUTE ? 'active' : ''}`}
+                                    className={`ListHeader_Title ${
+                                        window.location.pathname === TOP_VOLUME_ROUTE ? 'active' : ''
+                                    }`}
                                 >
                                     Top volume markets
                                 </div>
@@ -114,30 +112,30 @@ export default class Markets extends React.Component {
                                 <Route
                                     path={KNOWN_MARKETS_ROUTE}
                                     exact
-                                    render={() =>
+                                    render={() => (
                                         <React.Fragment>
                                             <div
                                                 className="ListHeader_lowTradable"
-                                                onClick={() => this.setState({
-                                                    zeroAssetsVisible: !fromStellarTicker && !zeroAssetsVisible,
-                                                })}
+                                                onClick={() =>
+                                                    this.setState({
+                                                        zeroAssetsVisible: !fromStellarTicker && !zeroAssetsVisible,
+                                                    })
+                                                }
                                             >
                                                 Include 24h zero volume assets
-                                                <input
-                                                    type="checkbox"
-                                                    readOnly
-                                                    checked={zeroAssetsVisible}
-                                                />
+                                                <input type="checkbox" readOnly checked={zeroAssetsVisible} />
                                                 <span className="custom-checkbox">
-                                                    {zeroAssetsVisible && <img src={images['icon-tick-green']} alt="✓" />}
+                                                    {zeroAssetsVisible && (
+                                                        <img src={images['icon-tick-green']} alt="✓" />
+                                                    )}
                                                 </span>
                                             </div>
                                         </React.Fragment>
-                                    }
+                                    )}
                                 />
                                 <Route
                                     path={TOP_VOLUME_ROUTE}
-                                    render={() =>
+                                    render={() => (
                                         <React.Fragment>
                                             <div className="ListHeader_dropdown">
                                                 <span>Base asset:</span>
@@ -153,7 +151,7 @@ export default class Markets extends React.Component {
                                                 />
                                             </div>
                                         </React.Fragment>
-                                    }
+                                    )}
                                 />
                             </Switch>
                         </div>
@@ -161,30 +159,20 @@ export default class Markets extends React.Component {
                             <Route
                                 path={KNOWN_MARKETS_ROUTE}
                                 exact
-                                render={() =>
-                                    <AssetList
-                                        d={d}
-                                        showLowTradable={zeroAssetsVisible}
-                                    />
-                                }
+                                render={() => <AssetList d={d} showLowTradable={zeroAssetsVisible} />}
                             />
                             <Route
                                 path={TOP_VOLUME_ROUTE}
-                                render={() =>
-                                    <TopVolumeAssets
-                                        d={d}
-                                        baseAsset={this.state.baseAsset}
-                                    />
-                                }
+                                render={() => <TopVolumeAssets d={d} baseAsset={this.state.baseAsset} />}
                             />
                             <Route render={() => <NotFound withoutWrapper />} />
                         </Switch>
 
                         <div className="AssetListFooter">
-                            StellarTerm does not endorse any of these issuers. They are here for informational purposes
+                            StellarFish does not endorse any of these issuers. They are here for informational purposes
                             only.
                             <br />
-                            To get listed on StellarTerm,{' '}
+                            To get listed on StellarFish,{' '}
                             <a
                                 href="https://github.com/stellarterm/stellarterm-directory"
                                 target="_blank"

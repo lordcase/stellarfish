@@ -21,7 +21,7 @@ export default function MultisigUnknownSubmitModal(props) {
                         <span>
                             <b>Your account has multisignature enabled.</b>
                         </span>
-                        <span>StellarTerm has signed the transaction, now continue with your multisig service</span>
+                        <span>StellarFish has signed the transaction, now continue with your multisig service</span>
                     </div>
                 </div>
                 <div className="MultisigUnknownSubmitModal__XDR_header">
@@ -33,11 +33,7 @@ export default function MultisigUnknownSubmitModal(props) {
                         {tx}
 
                         <div className="MultisigUnknownSubmitModal__XDR_content_link">
-                            <a
-                                href={expertLink}
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                            >
+                            <a href={expertLink} target="_blank" rel="nofollow noopener noreferrer">
                                 View transaction details
                                 <img src={images['icon-arrow-right-green']} alt="" />
                             </a>

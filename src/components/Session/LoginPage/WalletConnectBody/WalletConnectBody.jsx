@@ -6,15 +6,17 @@ import SecretPhrase from '../SecretPhrase/SecretPhrase';
 import Driver from '../../../../lib/Driver';
 import AcceptTerms from '../Common/AcceptTerms';
 
-
 const WalletConnectBody = ({ history, d, modal }) => {
     const [loading, setLoading] = useState(false);
     let mounted = true;
 
-    useEffect(() => () => {
-        // unmount effect
-        mounted = false;
-    }, []);
+    useEffect(
+        () => () => {
+            // unmount effect
+            mounted = false;
+        },
+        [],
+    );
 
     const loginWithWalletConnect = e => {
         setLoading(true);
@@ -30,7 +32,6 @@ const WalletConnectBody = ({ history, d, modal }) => {
     const getWalletConnectLoginForm = () => (
         <form onSubmit={loginWithWalletConnect}>
             <div className="LoginPage__submitWrap">
-
                 <AcceptTerms loginButtonText={'Log in with WalletConnect'} loading={loading} />
             </div>
         </form>
@@ -60,9 +61,7 @@ const WalletConnectBody = ({ history, d, modal }) => {
                     <div className="LoginPage__header">
                         <div className="LoginPage__header-wrap">
                             <span className="LoginPage__title">Access your account</span>
-                            <span className="LoginPage__intro">
-                                Use StellarTerm with WalletConnect-compatible app
-                            </span>
+                            <span className="LoginPage__intro">Use StellarFish with WalletConnect-compatible app</span>
                         </div>
                         <div className="WalletConnect_logo">
                             <div>
@@ -76,7 +75,7 @@ const WalletConnectBody = ({ history, d, modal }) => {
                                         lineHeight: '15px',
                                     }}
                                 >
-                                WalletConnect
+                                    WalletConnect
                                 </span>
                             </div>
                             <div className="WalletConnect_beta">(beta)</div>
@@ -87,9 +86,7 @@ const WalletConnectBody = ({ history, d, modal }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="LoginPage__greenBox">
-                        {getWalletConnectLoginForm()}
-                    </div>
+                    <div className="LoginPage__greenBox">{getWalletConnectLoginForm()}</div>
                     <a
                         className="LoginPage_green-link"
                         href="https://stellarterm.zendesk.com/hc/en-us/articles/4406496403217"

@@ -1,7 +1,7 @@
-@import "./Sep24ModalContent/Sep24ModalContent";
-@import "./WithdrawCompleted/WithdrawCompleted";
-@import "./AssetBalance/AssetBalance";
-@import "./TransactionContent/TransactionContent";
+@import './Sep24ModalContent/Sep24ModalContent';
+@import './WithdrawCompleted/WithdrawCompleted';
+@import './AssetBalance/AssetBalance';
+@import './TransactionContent/TransactionContent';
 
 .Sep24Modal {
     background-color: #fff;
@@ -11,7 +11,7 @@
 
     a {
         text-decoration: none;
-        color: #69c76f;
+        color: #c18565;
 
         &:hover {
             text-decoration: underline;

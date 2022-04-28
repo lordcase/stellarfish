@@ -7,7 +7,7 @@
         display: flex;
         font-size: 16px;
         font-weight: 600;
-        color: #86d38c;
+        color: #c18565;
         padding: 0.5em;
         cursor: pointer;
 
@@ -59,7 +59,7 @@
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
 
             &::after {
-                content: "";
+                content: '';
                 position: absolute;
                 left: calc(50% - 8px);
                 top: -16px;

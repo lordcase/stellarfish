@@ -1,5 +1,5 @@
 .CopyButton {
-    color: #86d38c;
+    color: #c18565;
     font-size: 16px;
     font-weight: 600;
     display: flex;
@@ -16,7 +16,7 @@
         width: 155px;
         height: 36px;
         border-radius: 2px;
-        background-color: #7ed085;
+        background-color: #c18565;
         color: #fff;
         font-size: 16px;
         font-weight: 300;
@@ -29,15 +29,15 @@
         transition: opacity 0.4s;
 
         &::after {
-            content: "";
+            content: '';
             position: absolute;
             left: 76px;
             bottom: -15px;
             border: 8px solid transparent;
-            border-top: 8px solid #7ed085;
+            border-top: 8px solid #c18565;
         }
 
-        &.onlyIcon{
+        &.onlyIcon {
             left: -75px;
         }
     }

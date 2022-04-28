@@ -22,7 +22,9 @@
 @import './GlobalModal/GlobalModal';
 @import 'ToastTemplate/ToastTemplate';
 @import 'BuyCrypto/BuyCrypto';
-@import "AppLoading/AppLoading";
+@import 'AppLoading/AppLoading';
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400');
 
 html {
     min-width: 1052px;
@@ -31,7 +33,7 @@ html {
 }
 
 body {
-    background: linear-gradient(0deg, #ced0ff, #c0ecff);
+    background: linear-gradient(#fefefe 100px, #d7d9ff 400px);
     color: $s-color-neutral3;
     font-size: $s-scale-4;
     min-width: 1052px;

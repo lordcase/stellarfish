@@ -1,8 +1,8 @@
-.TopVolume{
+.TopVolume {
     display: flex;
     flex-direction: column;
 
-    .TopVolume_header{
+    .TopVolume_header {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -10,15 +10,15 @@
         font-weight: bold;
         border-bottom: 1px solid #f9f9fa;
 
-        .TopVolume_cell{
+        .TopVolume_cell {
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 background-color: #d8d8d81a;
             }
-            &.withoutSort{
+            &.withoutSort {
                 cursor: unset;
-                &:hover{
+                &:hover {
                     background-color: #fff;
                 }
             }
@@ -32,21 +32,21 @@
         }
     }
 
-    .TopVolume_loader{
+    .TopVolume_loader {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 80px;
 
-        .nk-spinner{
+        .nk-spinner {
             width: 50px;
             height: 50px;
             border: 3px solid rgba(134, 211, 140, 0.3);
-            border-left: 3px solid #86d38c;
+            border-left: 3px solid #c18565;
         }
     }
 
-    .TopVolume_empty{
+    .TopVolume_empty {
         display: flex;
         height: 80px;
         align-items: center;
@@ -54,24 +54,24 @@
         font-size: 16px;
         font-weight: bold;
 
-        &.error{
+        &.error {
             color: #ff415b;
         }
     }
 
-    .TopVolume_row{
+    .TopVolume_row {
         display: flex;
         flex-direction: row;
         border-bottom: 1px solid #f9f9fa;
         cursor: pointer;
         text-decoration: none;
 
-        &:hover{
+        &:hover {
             background-color: #d8d8d81a;
         }
     }
 
-    .TopVolume_cell{
+    .TopVolume_cell {
         display: flex;
         padding: 15px 20px 13px;
         flex: 1;
@@ -79,7 +79,7 @@
         overflow: hidden;
         white-space: nowrap;
 
-        .AssetCardSeparateLogo{
+        .AssetCardSeparateLogo {
             width: 100%;
         }
 
@@ -88,19 +88,19 @@
             flex: 0.7;
         }
 
-        .TopVolume_cell-column{
+        .TopVolume_cell-column {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
             line-height: normal;
 
-            .TopVolume_cell-value{
+            .TopVolume_cell-value {
                 font-size: 14px;
                 font-weight: normal;
             }
 
-            .TopVolume_cell-value-usd{
+            .TopVolume_cell-value-usd {
                 font-size: 12px;
                 font-weight: 300;
                 opacity: 0.6;

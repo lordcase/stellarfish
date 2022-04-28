@@ -2,18 +2,17 @@
     padding: 16px 18px 20px;
 }
 
-.PairPicker_marketsTable{
+.PairPicker_marketsTable {
     width: 100%;
     padding: 0 20px 20px;
     display: flex;
     flex-direction: column;
 
-
-    .PairPicker_marketsTable-header{
+    .PairPicker_marketsTable-header {
         display: flex;
         width: 100%;
 
-        span{
+        span {
             flex: 2;
             font-size: 16px;
             font-weight: 300;
@@ -33,11 +32,11 @@
         }
     }
 
-    .PairPicker_marketsTable-content{
+    .PairPicker_marketsTable-content {
         display: flex;
         width: 100%;
 
-        span{
+        span {
             flex: 2;
             font-size: 18px;
             font-weight: 600;
@@ -55,12 +54,12 @@
                 flex: 1.5;
             }
 
-            &.negative > span{
+            &.negative > span {
                 color: #ff415b;
             }
 
-            &.positive > span{
-                color: #69c76f;
+            &.positive > span {
+                color: #c18565;
             }
 
             &.up {
@@ -74,25 +73,40 @@
                 -moz-animation-duration: 1s;
                 -o-animation-duration: 1s;
 
-
                 @keyframes up {
-                    from {background-color: #00ff00;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #00ff00;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-webkit-keyframes up {
-                    from {background-color: #00ff00;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #00ff00;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-moz-keyframes up {
-                    from {background-color: #00ff00;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #00ff00;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-o-keyframes up {
-                    from {background-color: #00ff00;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #00ff00;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
             }
 
@@ -108,23 +122,39 @@
                 -o-animation-duration: 1s;
 
                 @keyframes down {
-                    from {background-color: #ff0000;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #ff0000;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-webkit-keyframes down {
-                    from {background-color: #ff0000;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #ff0000;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-moz-keyframes down {
-                    from {background-color: #ff0000;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #ff0000;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
 
                 @-o-keyframes down {
-                    from {background-color: #ff0000;}
-                    to {background-color: #fff;}
+                    from {
+                        background-color: #ff0000;
+                    }
+                    to {
+                        background-color: #fff;
+                    }
                 }
             }
         }

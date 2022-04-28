@@ -34,7 +34,7 @@ export default class AcceptTerms extends React.Component {
                         >
                             Terms of Use
                         </Link>
-                        , understand the risks associated with cryptocurrencies, and know that StellarTerm does not
+                        , understand the risks associated with cryptocurrencies, and know that StellarFish does not
                         issue or endorse any asset on the Stellar network.
                     </span>
                 </label>
@@ -47,9 +47,7 @@ export default class AcceptTerms extends React.Component {
                         disabled={!this.state.termsAccepted}
                     >
                         {loginButtonText}
-                        {loading &&
-                            <div className="nk-spinner" />
-                        }
+                        {loading && <div className="nk-spinner" />}
                     </button>
                     {withSignUpLink && (
                         <span className="LoginPage__signupInvite">

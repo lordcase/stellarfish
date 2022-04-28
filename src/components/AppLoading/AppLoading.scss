@@ -6,16 +6,16 @@
     padding: 32px;
 }
 
-.directory-loader{
+.directory-loader {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 80px;
 
-    .nk-spinner{
+    .nk-spinner {
         width: 40px;
         height: 40px;
         border: 3px solid rgba(134, 211, 140, 0.3);
-        border-left: 3px solid #86d38c;
+        border-left: 3px solid #c18565;
     }
 }

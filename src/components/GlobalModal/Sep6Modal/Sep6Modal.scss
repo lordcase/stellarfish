@@ -1,6 +1,6 @@
-@import "./AssetBalance/AssetBalance";
-@import "./WithdrawCompleted/WithdrawCompleted";
-@import "./Sep6ModalContent/Sep6ModalContent";
+@import './AssetBalance/AssetBalance';
+@import './WithdrawCompleted/WithdrawCompleted';
+@import './Sep6ModalContent/Sep6ModalContent';
 
 .Sep6Modal {
     background-color: #fff;
@@ -10,7 +10,7 @@
 
     a {
         text-decoration: none;
-        color: #69c76f;
+        color: #c18565;
 
         &:hover {
             text-decoration: underline;

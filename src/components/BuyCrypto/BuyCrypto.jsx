@@ -264,16 +264,8 @@ export default class BuyCrypto extends React.Component {
     }
 
     renderMoonpayForm() {
-        const {
-            error,
-            isPending,
-            currencies,
-            crypto,
-            selectedCrypto,
-            selectedCurrency,
-            currencyAmount,
-            cryptoAmount,
-        } = this.state;
+        const { error, isPending, currencies, crypto, selectedCrypto, selectedCurrency, currencyAmount, cryptoAmount } =
+            this.state;
 
         if (error) {
             return (
@@ -382,7 +374,7 @@ export default class BuyCrypto extends React.Component {
                             Buy crypto assets <br /> with VISA or Mastercard
                         </div>
                         <div className="BuyCrypto_description">
-                            StellarTerm is a trusted place where you can easily buy Lumens and other cryptocurrencies
+                            StellarFish is a trusted place where you can easily buy Lumens and other cryptocurrencies
                             with your credit or debit card
                         </div>
                     </div>

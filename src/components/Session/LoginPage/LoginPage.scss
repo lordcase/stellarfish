@@ -144,8 +144,8 @@
         padding: 0 15px;
         height: 55px;
         border-radius: 2px;
-        border: solid 1px #5eb464;
-        background-color: #69c76f;
+        border: solid 1px #c18565;
+        background-color: #c18565;
         font-size: 16px;
         font-weight: normal;
         color: #fff;
@@ -165,16 +165,16 @@
     }
 
     .LoginPage__link {
-        color: #7ed085;
+        color: #c18565;
         font-size: 16px;
     }
 }
 
 .LoginPage_green-link {
-    color: #68c86f;
+    color: #c18565;
     font-size: 14px;
     font-weight: normal;
-    border-bottom: 1px dotted #68c86f;
+    border-bottom: 1px dotted #c18565;
     cursor: pointer;
     text-decoration: none;
 }
@@ -187,7 +187,7 @@
 
     a {
         text-decoration: none;
-        color: #68c86f;
+        color: #c18565;
     }
 }
 
@@ -268,7 +268,7 @@
         }
 
         a {
-            color: #7ed085;
+            color: #c18565;
         }
 
         ol {
@@ -324,7 +324,7 @@
                 &::before {
                     line-height: 18px;
                     display: block;
-                    color: #68c86f;
+                    color: #c18565;
                     content: '·';
                     font-size: 30px;
                     font-style: normal;
@@ -349,7 +349,7 @@
             top: unset;
             bottom: calc(100% + 1px);
             border-top: none;
-            border-bottom: 8px solid #69c76f;
+            border-bottom: 8px solid #c18565;
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
         }

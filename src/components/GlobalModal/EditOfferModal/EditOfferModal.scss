@@ -1,4 +1,4 @@
-.EditOfferModal{
+.EditOfferModal {
     background-color: #fff;
     width: 521px;
     margin: 0 auto;
@@ -8,10 +8,10 @@
         padding: 30px 28px 30px 44px;
     }
 
-    .EditOfferModal_switch-block{
+    .EditOfferModal_switch-block {
         width: 100%;
         padding: 20px 42px;
-        background-color: #FAFAFB;
+        background-color: #fafafb;
         font-size: 14px;
         font-weight: normal;
         line-height: normal;
@@ -20,30 +20,29 @@
         justify-content: space-between;
         align-items: flex-start;
 
-        .EditOfferModal_switch-description{
+        .EditOfferModal_switch-description {
             display: flex;
             flex-direction: column;
 
-            .EditOfferModal_switch-description-question{
+            .EditOfferModal_switch-description-question {
                 color: #aaadae;
             }
 
-            .EditOfferModal_switch-description-button{
+            .EditOfferModal_switch-description-button {
                 display: flex;
                 margin-top: 5px;
-                color: #69c76f;
+                color: #c18565;
                 cursor: pointer;
-                img{
+                img {
                     margin-left: -5px;
                     margin-right: 5px;
                 }
 
-                span{
-                    border-bottom: 1px dotted #69c76f;
+                span {
+                    border-bottom: 1px dotted #c18565;
                     height: 100%;
                 }
             }
         }
-
     }
 }

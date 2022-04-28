@@ -7,6 +7,7 @@ import images from '../../images';
 import Driver from '../../lib/Driver';
 import AppPopover from '../Common/AppPopover/AppPopover';
 import { SESSION_STATE } from '../../lib/constants';
+// import Logo from '../Logo/Logo';
 
 class Header extends React.Component {
     constructor(props) {
@@ -130,20 +131,16 @@ class Header extends React.Component {
                 <div className="Header_account-icon">
                     <img src={renderedIcon} alt="icon" />
                 </div>
-                {hasMetadata &&
+                {hasMetadata && (
                     <AppPopover
                         hoverArea={
                             <div className="Header_app-icon">
                                 <img src={this.props.d.walletConnectService.appMeta.icons[0]} alt="" />
                             </div>
                         }
-                        content={
-                            <span>
-                                Account connected with WalletConnect
-                            </span>
-                        }
+                        content={<span>Account connected with WalletConnect</span>}
                     />
-                }
+                )}
             </div>
         );
     }
@@ -188,13 +185,18 @@ class Header extends React.Component {
                     <div className="so-chunk Header">
                         <nav className="Header_nav">
                             <Link className="Nav_logo" to={'/'}>
-                                StellarTerm
+                                <img
+                                    src="/logo_fekvo.svg"
+                                    alt="logo"
+                                    width="174"
+                                    style={{ position: 'relative', top: '8px' }}
+                                />
                             </Link>
                             {this.createHeaderTab('/markets/', 'Markets')}
                             {this.createHeaderTab('/exchange/', 'Exchange')}
                             {this.createHeaderTab('/account/', 'Account')}
-                            {this.getBuyCryptoLobsterLink()}
-                            {!isElectron() ? this.createHeaderTab('/download/', 'Download') : null}
+                            {/* {this.getBuyCryptoLobsterLink()} */}
+                            {/* {!isElectron() ? this.createHeaderTab('/download/', 'Download') : null} */}
                         </nav>
 
                         {accountBlock}

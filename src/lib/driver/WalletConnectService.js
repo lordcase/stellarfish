@@ -3,12 +3,12 @@ import * as StellarSdk from 'stellar-sdk';
 import { AUTH_TYPE, TX_STATUS } from '../constants';
 import Sep7Handler from '../../components/HomePage/Sep7Handler/Sep7Handler';
 
-
 const METADATA = {
-    name: 'StellarTerm',
-    description: 'StellarTerm is an advanced web-based trading client for the Stellar network. ' +
-        'Send, receive, and trade assets on the Stellar network easily with StellarTerm.',
-    url: 'https://stellarterm.com',
+    name: 'StellarFish',
+    description:
+        'StellarFish is an advanced web-based trading client for the Stellar network. ' +
+        'Send, receive, and trade assets on the Stellar network easily with StellarFish.',
+    url: 'https://stellarfish.com',
     icons: ['https://avatars.githubusercontent.com/u/25021964?s=200&v=4.png'],
 };
 
@@ -39,7 +39,9 @@ export default class WalletConnectService {
 
         // there is a problem with updating the states in wallet connect, a small timeout solves this problem
         // TODO delete this when it is fixed in the library
-        await new Promise(resolve => { setTimeout(() => resolve(), 500); });
+        await new Promise(resolve => {
+            setTimeout(() => resolve(), 500);
+        });
 
         this.listenWalletConnectEvents();
 
@@ -47,8 +49,7 @@ export default class WalletConnectService {
             return null;
         }
 
-        this.session =
-            await this.client.session.get(this.client.session.topics[0]);
+        this.session = await this.client.session.get(this.client.session.topics[0]);
 
         // eslint-disable-next-line no-unused-vars
         const [chain, reference, publicKey] = this.session.state.accounts[0].split(':');
@@ -184,9 +185,7 @@ export default class WalletConnectService {
             if (e.message === 'cancelled') {
                 return Promise.resolve({ status: 'cancel' });
             }
-            const errorMessage = e.message === 'Session not approved' ?
-                'Connection canceled by the user' :
-                e.message;
+            const errorMessage = e.message === 'Session not approved' ? 'Connection canceled by the user' : e.message;
             this.driver.toastService.error('Connection unsuccessful', errorMessage);
             return this.driver.modal.handlers.cancel();
         }
@@ -197,19 +196,21 @@ export default class WalletConnectService {
         // eslint-disable-next-line no-unused-vars
         const [chain, reference, publicKey] = this.session.state.accounts[0].split(':');
         const keypair = StellarSdk.Keypair.fromPublicKey(publicKey);
-        return this.driver.session.handlers.logIn(keypair, {
-            authType: AUTH_TYPE.WALLET_CONNECT,
-        }).then(() => {
-            Sep7Handler(this.driver);
+        return this.driver.session.handlers
+            .logIn(keypair, {
+                authType: AUTH_TYPE.WALLET_CONNECT,
+            })
+            .then(() => {
+                Sep7Handler(this.driver);
 
-            if (pairing) {
-                this.client.pairing.settled.update(pairing.topic, {
-                    state: {
-                        metadata: this.appMeta,
-                    },
-                });
-            }
-        });
+                if (pairing) {
+                    this.client.pairing.settled.update(pairing.topic, {
+                        state: {
+                            metadata: this.appMeta,
+                        },
+                    });
+                }
+            });
     }
 
     async logout() {
@@ -231,21 +232,23 @@ export default class WalletConnectService {
         this.driver.modal.handlers.activate('WalletConnectRequestModal', {
             title: this.appMeta.name,
             logo: this.appMeta.icons[0],
-            result: this.client.request({
-                topic: this.session.topic,
-                chainId: this.driver.Server.isTestnet ? TESTNET : PUBNET,
-                request: {
-                    jsonrpc: '2.0',
-                    method: STELLAR_METHODS.SIGN,
-                    params: {
-                        xdr,
+            result: this.client
+                .request({
+                    topic: this.session.topic,
+                    chainId: this.driver.Server.isTestnet ? TESTNET : PUBNET,
+                    request: {
+                        jsonrpc: '2.0',
+                        method: STELLAR_METHODS.SIGN,
+                        params: {
+                            xdr,
+                        },
                     },
-                },
-            }).then(result => {
-                this.driver.session.account.refresh();
-                this.driver.session.account.updateOffers();
-                return result;
-            }),
+                })
+                .then(result => {
+                    this.driver.session.account.refresh();
+                    this.driver.session.account.updateOffers();
+                    return result;
+                }),
         });
 
         return { status: TX_STATUS.SENT_TO_WALLET_CONNECT };

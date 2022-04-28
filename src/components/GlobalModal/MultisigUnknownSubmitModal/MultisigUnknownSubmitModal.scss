@@ -1,4 +1,4 @@
-.MultisigUnknownSubmitModal{
+.MultisigUnknownSubmitModal {
     width: 612px;
     top: 50%;
     left: 50%;
@@ -11,7 +11,7 @@
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16);
 }
-.MultisigUnknownSubmitModal__header{
+.MultisigUnknownSubmitModal__header {
     width: 100%;
     height: 48px;
     background-color: #f4f4f5;
@@ -22,7 +22,7 @@
     color: #505558;
 }
 
-.MultisigUnknownSubmitModal__content{
+.MultisigUnknownSubmitModal__content {
     margin-top: 40px;
     margin-bottom: 30px;
     padding: 0 40px;
@@ -31,13 +31,13 @@
     color: #505558;
 }
 
-.MultisigUnknownSubmitModal__title{
+.MultisigUnknownSubmitModal__title {
     padding-bottom: 30px;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-    .MultisigUnknownSubmitModal__logo{
+    .MultisigUnknownSubmitModal__logo {
         width: 67px;
         height: 78px;
         margin-right: 38px;
@@ -50,7 +50,7 @@
     }
 }
 
-.MultisigUnknownSubmitModal__XDR_header{
+.MultisigUnknownSubmitModal__XDR_header {
     margin-top: 30px;
     margin-bottom: 10px;
     display: flex;
@@ -58,7 +58,7 @@
     color: #505558;
 }
 
-.MultisigUnknownSubmitModal__XDR_content{
+.MultisigUnknownSubmitModal__XDR_content {
     font-size: 16px;
     color: #505558;
 
@@ -66,7 +66,7 @@
         width: 100%;
         padding: 16px;
         line-height: 20px;
-        background-color: rgba(244,244,245,0.2);
+        background-color: rgba(244, 244, 245, 0.2);
         border: solid 1px #bdbfc0;
         border-radius: 2px;
         word-break: break-word;
@@ -81,7 +81,7 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: normal;
-            color: #68c86f;
+            color: #c18565;
         }
 
         img {
@@ -90,13 +90,12 @@
     }
 }
 
-
-.MultisigUnknownSubmitModal__button{
+.MultisigUnknownSubmitModal__button {
     width: 180px;
     height: 52px;
     border-radius: 2px;
-    border: solid 1px #5eb464;
-    background-color: #69c76f;
+    border: solid 1px #c18565;
+    background-color: #c18565;
     color: #fff;
     font-size: 16px;
     margin-bottom: 40px;

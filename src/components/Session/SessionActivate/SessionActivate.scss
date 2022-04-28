@@ -57,13 +57,13 @@
                     left: -10px;
 
                     &::after {
-                        content: "";
+                        content: '';
                         position: absolute;
                         left: 70px;
                         bottom: 35px;
                         border: 8px solid transparent;
                         border-top: none;
-                        border-bottom: 8px solid #7ed085;
+                        border-bottom: 8px solid #c18565;
                     }
                 }
             }
@@ -91,7 +91,7 @@
             justify-content: space-between;
             padding: 1.5em;
             border-radius: 4px;
-            border: solid 1px #7ed085;
+            border: solid 1px #c18565;
             background-color: #f0faf1;
             min-height: 340px;
 

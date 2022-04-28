@@ -1,5 +1,5 @@
-.TrustButton_accept{
-    color: #86d38c;
+.TrustButton_accept {
+    color: #c18565;
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
@@ -7,23 +7,23 @@
     flex-direction: row;
     align-items: center;
 
-    & span{
+    & span {
         margin-left: 5px;
     }
 
-    .TrustButton_accept-icon{
+    .TrustButton_accept-icon {
         font-size: 26px;
     }
 
-    &.error{
+    &.error {
         color: #ff415b;
         position: relative;
 
-        .TrustButton_accept-icon{
+        .TrustButton_accept-icon {
             transform: rotate(45deg);
         }
 
-        .TrustButton_error-popup{
+        .TrustButton_error-popup {
             display: flex;
             justify-content: center;
             align-items: center;

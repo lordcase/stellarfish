@@ -69,7 +69,7 @@ export default function Send(driver) {
 
         if (
             localStorageAssets.length &&
-            ((new Date() - new Date(time)) < periodUpdate) &&
+            new Date() - new Date(time) < periodUpdate &&
             String(directoryBuild) === String(frontendDirectoryBuild)
         ) {
             this.addKnownAssetDataCalled = true;
@@ -121,7 +121,8 @@ export default function Send(driver) {
             this.addKnownAssetDataCalled = true;
         });
     };
-    this.addKnownAssetDataPromise = directory.initializeIssuerOrgs(EnvConsts.ANCHORS_URL)
+    this.addKnownAssetDataPromise = directory
+        .initializeIssuerOrgs(EnvConsts.ANCHORS_URL)
         .then(() => this.addKnownAssetData());
 
     // Ping the Ledger device to see if it is connected
@@ -189,7 +190,7 @@ export default function Send(driver) {
                     throw new Error(
                         'Could not access your Ledger account. ' +
                             'Make sure your Ledger is not locked after idle timeout or update the firmware version. ' +
-                            'Contact the support at support@stellarterm.com if the issue persists.',
+                            'Contact the support at support@stellarfish.com if the issue persists.',
                     );
                 }
 
@@ -229,54 +230,55 @@ export default function Send(driver) {
 
             return MagicSpoon.Account(driver.Server, keypair, opts, () => {
                 this.event.trigger(SESSION_EVENTS.ACCOUNT_EVENT, this);
-            }).then(result => {
-                // if there is no authType, it means that a logout was performed during loading (WalletConnect case)
-                if (this.authType) {
-                    this.account = result;
-                    // Search for user federation
-                    this.handlers.searchFederation(this.account.accountId())
-                        .then(() => {
+            })
+                .then(result => {
+                    // if there is no authType, it means that a logout was performed during loading (WalletConnect case)
+                    if (this.authType) {
+                        this.account = result;
+                        // Search for user federation
+                        this.handlers.searchFederation(this.account.accountId()).then(() => {
                             this.event.trigger(SESSION_EVENTS.FEDERATION_SEARCH_EVENT, this);
                         });
 
-                    this.state = SESSION_STATE.IN;
-                    this.bip32Path = opts.bip32Path;
+                        this.state = SESSION_STATE.IN;
+                        this.bip32Path = opts.bip32Path;
 
-                    // Functions of session after sign in
-                    this.handlers.addUnknownAssetData();
-                    driver.accountEvents.listenAccountEvents(driver.Server, this.account.account_id);
-                    this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
+                        // Functions of session after sign in
+                        this.handlers.addUnknownAssetData();
+                        driver.accountEvents.listenAccountEvents(driver.Server, this.account.account_id);
+                        this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
 
-                    driver.claimableBalances.getClaimableBalances();
-                    return;
-                }
-                if (cachedAuthType === AUTH_TYPE.WALLET_CONNECT) {
-                    driver.walletConnectService.login();
-                }
-            }).catch(e => {
-                if (this.brakeUnfundedCheck) {
+                        driver.claimableBalances.getClaimableBalances();
+                        return;
+                    }
+                    if (cachedAuthType === AUTH_TYPE.WALLET_CONNECT) {
+                        driver.walletConnectService.login();
+                    }
+                })
+                .catch(e => {
+                    if (this.brakeUnfundedCheck) {
+                        this.state = SESSION_STATE.OUT;
+                        this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
+                        return;
+                    }
+                    if (e.message !== 'Network Error') {
+                        this.state = SESSION_STATE.UNFUNDED;
+                        this.unfundedAccountId = keypair.publicKey();
+                        setTimeout(() => {
+                            console.log('Checking to see if account has been created yet');
+                            if (this.state === SESSION_STATE.UNFUNDED) {
+                                // Avoid race conditions
+                                this.handlers.logIn(keypair, opts);
+                            }
+                        }, 5000);
+                        this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
+                        return;
+                    }
+                    console.log(e);
                     this.state = SESSION_STATE.OUT;
+                    this.setupError = true;
                     this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
-                    return;
-                }
-                if (e.message !== 'Network Error') {
-                    this.state = SESSION_STATE.UNFUNDED;
-                    this.unfundedAccountId = keypair.publicKey();
-                    setTimeout(() => {
-                        console.log('Checking to see if account has been created yet');
-                        if (this.state === SESSION_STATE.UNFUNDED) {
-                            // Avoid race conditions
-                            this.handlers.logIn(keypair, opts);
-                        }
-                    }, 5000);
-                    this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
-                    return;
-                }
-                console.log(e);
-                this.state = SESSION_STATE.OUT;
-                this.setupError = true;
-                this.event.trigger(SESSION_EVENTS.LOGIN_EVENT, this);
-            });
+                });
         },
         sign: async tx => {
             if (this.authType === AUTH_TYPE.SECRET) {
@@ -337,10 +339,7 @@ export default function Send(driver) {
         },
         buildSignSubmit: async (ops, memo, withMuxing) => {
             if (this.hasPendingTransaction) {
-                driver.toastService.error(
-                    'Transaction in progress',
-                    'Another transaction is currently in progress',
-                );
+                driver.toastService.error('Transaction in progress', 'Another transaction is currently in progress');
                 return Promise.reject();
             }
             this.hasPendingTransaction = true;
@@ -384,8 +383,9 @@ export default function Send(driver) {
                     const tx = signResult.signedTx;
                     const threshold = this.handlers.getTransactionThreshold(tx);
                     const thresholdValue = this.account.thresholds[threshold];
-                    const masterWeight = this.account.signers.find(signer => signer.key === this.account.account_id)
-                        .weight;
+                    const masterWeight = this.account.signers.find(
+                        signer => signer.key === this.account.account_id,
+                    ).weight;
 
                     if (driver.session.account.signers.length > 1 && masterWeight < thresholdValue) {
                         this.hasPendingTransaction = false;
@@ -508,10 +508,14 @@ export default function Send(driver) {
             const usedKnownSigner = driver.session.account.signers.find(sign => knownSigners[sign.key]);
 
             if (!usedKnownSigner) {
-                setTimeout(() => driver.modal.handlers.activate('multisigUnknown', {
-                    tx: signedTx,
-                    isTestnet: driver.Server.isTestnet,
-                }), 1000);
+                setTimeout(
+                    () =>
+                        driver.modal.handlers.activate('multisigUnknown', {
+                            tx: signedTx,
+                            isTestnet: driver.Server.isTestnet,
+                        }),
+                    1000,
+                );
             } else {
                 const signer = knownSigners[usedKnownSigner.key];
                 const body = JSON.stringify({ xdr: signedTx });
@@ -842,8 +846,8 @@ export default function Send(driver) {
         // be a createAccount operation
         send: async (opts, memo) => {
             let op;
-            const baseAccount = opts.withMuxing ?
-                StellarSdk.MuxedAccount.fromAddress(opts.destination, '0').baseAccount().accountId()
+            const baseAccount = opts.withMuxing
+                ? StellarSdk.MuxedAccount.fromAddress(opts.destination, '0').baseAccount().accountId()
                 : null;
             try {
                 // We need to check the activation of the destination,
